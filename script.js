@@ -11,18 +11,18 @@ console.log(x,y)
 }
 setInterval(deplacement,20)
 
-function deplacement_racket1(y){
-	if (y>300)
-		y=300
-	if (y<0)
-		y=0	
-	document.getElementById("racket1").style.top=y+"px"	
+function deplacement_racket1(u){
+	if (u>300)
+		u=300
+	if (u<0)
+		u=0	
+	document.getElementById("racket1").style.top=u+"px"	
 }
 
-function deplacement_racket2(y){
-	if (y>300)
-		y=300
-	if (y<0)
-		y=0	
+function deplacement_racket2(u){
+	if (u>300)
+		u=300
+	if (u<0)
+		u=0	
 	document.getElementById("racket2").style.top=y+"px"	
 }
