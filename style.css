@@ -4,6 +4,7 @@
     height: 400px;
     position: relative;
 }
+
 #balle{
 position: absolute;
 left: 350px;
