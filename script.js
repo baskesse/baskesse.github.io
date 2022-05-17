@@ -29,6 +29,6 @@ function deplacement_racket2(u){
 }
 
 function touchePressee(e){
-	console,log(e)
+	console.log(e)
 }
 document.addEventListener('keydown',touchePressee);
