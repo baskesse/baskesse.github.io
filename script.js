@@ -16,13 +16,19 @@ function deplacement_racket1(u){
 		u=300
 	if (u<0)
 		u=0	
-	document.getElementById("racket1").style.top=u+"px"	
+	document.getElementById("racket1").style.top=u+"px"
 }
+	
+
 
 function deplacement_racket2(u){
 	if (u>300)
 		u=300
 	if (u<0)
 		u=0	
-	document.getElementById("racket2").style.top=y+"px"	
 }
+
+function touchePressee(e){
+	console,log(e)
+}
+document.addEventListener('keydown',touchePressee);
