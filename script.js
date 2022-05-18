@@ -21,7 +21,7 @@ if(y + dy > hauteur-diametre || y + dy < 0) {
 x += dx;
 y += dy;
 }
-setInterval(deplacement,20)
+
 
 function deplacement_racket1(u){
 	u += document.getElementById("racket1").offsetTop
@@ -57,9 +57,18 @@ document.addEventListener('keydown',touchePressee);
 function init(){
 	document.getElementById("racket1").style.top=(hauteur-document.getElementById("racket1").clientHeight)/2+"px"
 	document.getElementById("racket2").style.top=(hauteur-document.getElementById("racket2").clientHeight)/2+"px"
-
+	y=(hauteur-document.getElementById("balle").clientHeight)/2
+	x=(largeur-document.getElementById("balle").clientWidth)/2
+	dx=5
+	dy=Math.random()-0.5
+	setInterval(deplacement,5)
+	
 }
 
 init();
+
+
+
+
 
 
