@@ -23,6 +23,7 @@ y += dy;
 setInterval(deplacement,20)
 
 function deplacement_racket1(u){
+	u += document.getElementById("racket1").offsetTop
 	if (u>300)
 		u=300
 	if (u<0)
@@ -31,9 +32,24 @@ function deplacement_racket1(u){
 }
 
 function deplacement_racket2(u){
+	u += document.getElementById("racket2").offsetTop
 	if (u>300)
 		u=300
 	if (u<0)
 		u=0	
 	document.getElementById("racket2").style.top=u+"px"	
 }
+
+function touchePressee(e){
+	console.log(e.key)
+	if (e.key == "z")
+		deplacement_racket1(-100)
+	if (e.key == "s")
+		deplacement_racket1(100)
+	if (e.key == "ArrowUp")
+		deplacement_racket2(-100)
+	if (e.key == "ArrowDown")
+		deplacement_racket2(100)
+}
+document.addEventListener('keydown',touchePressee);
+
