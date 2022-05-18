@@ -6,15 +6,16 @@ dy=5;
 largeur=document.getElementById("terrain").clientWidth
 hauteur=document.getElementById("terrain").clientHeight
 diametre=document.getElementById("balle").clientHeight
-console.log(largeur,hauteur,diametre)
+
 
 function deplacement(){
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
-if (x + dx > largeur-diametre || x + dx < diametre) {
+if (x + dx > largeur-diametre || x + dx < 0
+	) {
         dx = -dx;
     }
-if(y + dy > hauteur-diametre || y + dy < diametre) {
+if(y + dy > hauteur-diametre || y + dy < 0) {
         dy = -dy;
     }
 x += dx;
@@ -41,15 +42,24 @@ function deplacement_racket2(u){
 }
 
 function touchePressee(e){
-	console.log(e.key)
+	pas=25
 	if (e.key == "z")
-		deplacement_racket1(-100)
+		deplacement_racket1(-pas)
 	if (e.key == "s")
-		deplacement_racket1(100)
+		deplacement_racket1(pas)
 	if (e.key == "ArrowUp")
-		deplacement_racket2(-100)
+		deplacement_racket2(-pas)
 	if (e.key == "ArrowDown")
-		deplacement_racket2(100)
+		deplacement_racket2(pas)
 }
 document.addEventListener('keydown',touchePressee);
+
+function init(){
+	document.getElementById("racket1").style.top=(hauteur-document.getElementById("racket1").clientHeight)/2+"px"
+	document.getElementById("racket2").style.top=(hauteur-document.getElementById("racket2").clientHeight)/2+"px"
+
+}
+
+init();
+
 
