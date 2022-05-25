@@ -2,6 +2,8 @@ x=650;
 y=365;
 dx=5;
 dy=5;
+score1=0
+score2=0
 
 largeur=document.getElementById("terrain").clientWidth
 hauteur=document.getElementById("terrain").clientHeight
@@ -13,9 +15,15 @@ epaisseur=document.getElementById("racket1").clientWidth+document.getElementById
 function deplacement(){
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
-if (x + dx > largeur-diametre || x + dx < 0
-	) {
+    if (x + dx < 0 ){
         dx = -dx;
+        score2++;
+        document.getElementById("score2").innerHTML=score2
+    }
+    if(x+dx>largeur-diametre){
+    	dx=-dx;
+        score1++;
+        document.getElementById("score1").innerHTML=score1
     }
 if(x +dx < epaisseur){
 
@@ -30,7 +38,10 @@ if (x + dx > largeur-diametre-epaisseur ) {
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight){
 	dx=-dx;
-   }
+	if(true){
+	 dy=dy*2
+     	}
+     }  
  }
 
 if (y + dy > hauteur-diametre || y + dy<0){
@@ -78,8 +89,10 @@ function init(){
 	y=(hauteur-document.getElementById("balle").clientHeight)/2
 	x=(largeur-document.getElementById("balle").clientWidth)/2
 	dx=5
-	dy=Math.random()-0.5
-	setInterval(deplacement,5)
+	dy=Math.random()*(dx/5)-dx/10
+	setInterval(deplacement,10)
+	document.getElementById("score1").innerHTML=0
+	document.getElementById("score2").innerHTML=0
 }
 
 init();
