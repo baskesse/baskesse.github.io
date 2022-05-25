@@ -44,3 +44,21 @@ background: mediumpurple;
     right: 10px;
     position: absolute;
 }
+
+#victoire1{
+    color: white;
+    right: 0;
+    left: 0;
+    top: 39%;
+    position: absolute;
+    margin: auto;
+}
+
+#victoire2{
+    color: white;
+    right: 0;
+    left: 0;
+    top: 39%;
+    position: absolute;
+    margin: auto;
+}
