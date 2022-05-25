@@ -3,6 +3,7 @@
 	width: 700px;
     height: 400px;
     position: relative;
+    margin: auto;
 }
 
 #balle{
@@ -29,5 +30,17 @@ background: mediumpurple;
     width: 15px;
     height: 100px;
     background: red;
+    position: absolute;
+}
+
+#score1{
+    color: white;
+    left: 10px;
+    position: absolute;
+}
+
+#score2{
+    color: white;
+    right: 10px;
     position: absolute;
 }
