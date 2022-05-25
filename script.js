@@ -88,6 +88,7 @@ function touchePressee(e){
 		deplacement_racket2(pas)
 }
 document.addEventListener('keydown',touchePressee);
+document.getElementById("reset").addEventListener("click",init);
 
 function init(){
 	document.getElementById("racket1").style.top=(hauteur-document.getElementById("racket1").clientHeight)/2+"px"
@@ -96,7 +97,7 @@ function init(){
 	x=(largeur-document.getElementById("balle").clientWidth)/2
 	dx=5
 	dy=Math.random()*(dx/5)-dx/10
-	setInterval(deplacement,10)
+	interval=setInterval(deplacement,10)
 	document.getElementById("score1").innerHTML=0
 	document.getElementById("score2").innerHTML=0
 	document.getElementById("victoire1").hidden=true;
@@ -110,6 +111,7 @@ init();
 
 function victoire(j){
 	document.getElementById("reset").hidden=false
+	clearInterval(interval)
 	if (j==1)
 		document.getElementById("victoire1").hidden=false;
 	if (j==2)
