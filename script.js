@@ -18,6 +18,9 @@ document.getElementById("balle").style.top=y+"px"
     if (x + dx < 0 ){
         dx = -dx;
         score2++;
+        dy=0
+        dx=0
+        setTimeout(balleaucentre,1000)
         document.getElementById("score2").innerHTML=score2
         if (score2>3){
         	victoire(2)
@@ -26,6 +29,9 @@ document.getElementById("balle").style.top=y+"px"
     if(x+dx>largeur-diametre){
     	dx=-dx;
         score1++;
+        dy=0
+        dx=0
+        setTimeout(balleaucentre,1000)
         document.getElementById("score1").innerHTML=score1
         if (score1>3){
         	victoire(1)
@@ -37,18 +43,33 @@ if(x +dx < epaisseur){
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight){
 	dx=-dx;
+	if(document.getElementById("balle").offsetTop
+	<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*25/100){
+		dy=dy-5
     }
+    if(document.getElementById("balle").offsetTop
+	>document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*75/100){
+		dy=dy+5
+    }
+}
 }
 if (x + dx > largeur-diametre-epaisseur ) {
         if(document.getElementById("balle").offsetTop>document.getElementById("racket2").offsetTop-diametre
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight){
 	dx=-dx;
+	if (document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*25/100){
+	dy=dy-5
+	}
+	if(document.getElementById("balle").offsetTop
+>document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*75/100){
+	dy=dy+5
 	if(true){
 	 dy=dy*2
      	}
      }  
  }
+}
 
 if (y + dy > hauteur-diametre || y + dy<0){
 	dy =-dy;
@@ -103,9 +124,24 @@ function init(){
 	document.getElementById("victoire1").hidden=true;
 	document.getElementById("victoire2").hidden=true;
 	document.getElementById("reset").hidden=true;
+	score1=0
+	score2=0
 	
 
 }
+
+function balleaucentre() {
+	y=(hauteur-document.getElementById("balle").clientHeight)/2
+	x=(largeur-document.getElementById("balle").clientWidth)/2
+	if (document.getElementById("balle").offsetLeft>x){
+		dx=-5
+	}
+	if (document.getElementById("balle").offsetLeft<x){
+		dx=5
+	}
+	dy=Math.random()-1.
+	
+	}
 
 init();
 
@@ -116,6 +152,13 @@ function victoire(j){
 		document.getElementById("victoire1").hidden=false;
 	if (j==2)
 		document.getElementById("victoire2").hidden=false;
+
+
+}
+
+function animation(){
+	document.getElementById("balle").style.animationName="animation"
+	document.getElementById("balle").style.animationDuration="10s"
 
 
 }
