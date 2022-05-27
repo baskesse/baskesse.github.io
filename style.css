@@ -14,7 +14,19 @@ width:20px;
 height:20px;
 border:1px ;
 border-radius: 20px;
-background: mediumpurple;
+animation-name: move;
+animation-duration: 10s;
+animation-iteration-count: infinite;
+
+}
+@keyframes move {
+    0% {background-color: red;}
+    12.5% {background-color: orange;}
+    25% {background-color: yellow;}
+    50% {background-color: green}
+    62.5% {background-color: blue}
+    75% {background-color: indigo}
+    100% {background-color: violet}
 }
 
 #racket1{
@@ -35,14 +47,18 @@ background: mediumpurple;
 
 #score1{
     color: white;
-    left: 10px;
+    left: 150px;
     position: absolute;
+    font-size:50px ;
+    font-family: Georgia, serif;
 }
 
 #score2{
     color: white;
-    right: 10px;
+    right: 150px;
     position: absolute;
+    font-size: 50px;
+    font-family: Georgia, serif;
 }
 
 #victoire1{
