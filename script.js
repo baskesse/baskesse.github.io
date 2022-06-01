@@ -43,27 +43,29 @@ if(x +dx < epaisseur){
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight){
 	dx=-dx;
+animation("racket1")
 	if(document.getElementById("balle").offsetTop
 	<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*25/100){
-		dy=dy-5
+		dy=dy-1
     }
     if(document.getElementById("balle").offsetTop
 	>document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*75/100){
-		dy=dy+5
+		dy=dy+1
     }
-}
+  }
 }
 if (x + dx > largeur-diametre-epaisseur ) {
         if(document.getElementById("balle").offsetTop>document.getElementById("racket2").offsetTop-diametre
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight){
 	dx=-dx;
+animation("racket2")
 	if (document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*25/100){
-	dy=dy-5
+	dy=dy-1
 	}
 	if(document.getElementById("balle").offsetTop
 >document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*75/100){
-	dy=dy+5
+	dy=dy+1
 	if(true){
 	 dy=dy*2
      	}
@@ -98,7 +100,7 @@ function deplacement_racket2(u){
 }
 
 function touchePressee(e){
-	pas=25
+	pas=40
 	if (e.key == "z")
 		deplacement_racket1(-pas)
 	if (e.key == "s")
@@ -156,9 +158,13 @@ function victoire(j){
 
 }
 
-function animation(){
-	document.getElementById("balle").style.animationName="animation"
-	document.getElementById("balle").style.animationDuration="10s"
-
-
+function animation(animation){
+	document.getElementById("racket1").classList.add(animation)
+	setTimeout(animation2,1000)
 }
+
+function animation2(){
+document.getElementById("racket1").classList.remove("balle")
+	document.getElementById("racket2").classList.remove("balle")
+}
+
