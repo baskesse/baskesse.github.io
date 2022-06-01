@@ -33,17 +33,21 @@ animation-iteration-count: infinite;
     width: 15px;
     height: 100px;
     left: 10px;
-    background: blue;
+    background: white;
     position: absolute;
+    
 }
+
 
 #racket2{
     right: 10px;
     width: 15px;
     height: 100px;
-    background: red;
+    background: white;
     position: absolute;
+    
 }
+
 
 #score1{
     color: white;
@@ -86,4 +90,27 @@ animation-iteration-count: infinite;
     top: 60%;
     position: absolute;
     margin: auto;
+}
+
+@keyframes racket1{
+    0%{background-color: white;}
+    50%{background-color: blue;}
+    100%{background-color: white;}
+}
+
+.racket1{
+    animation-duration: 1s;
+    animation-name: racket1;
+}
+
+
+@keyframes racket2{
+    0%{background-color: white;}
+    50%{background-color: red;}
+    100%{background-color: white;}
+}
+
+.racket2{
+    animation-duration: 1s;
+    animation-name: racket2;
 }
