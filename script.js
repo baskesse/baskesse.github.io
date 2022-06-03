@@ -43,7 +43,7 @@ if(x +dx < epaisseur){
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight){
 	dx=-dx;
-animation("racket1")
+couleur1("racket1")
 	if(document.getElementById("balle").offsetTop
 	<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*25/100){
 		dy=dy-1
@@ -59,7 +59,7 @@ if (x + dx > largeur-diametre-epaisseur ) {
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight){
 	dx=-dx;
-animation("racket2")
+couleur2("racket2")
 	if (document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*25/100){
 	dy=dy-1
 	}
@@ -158,13 +158,20 @@ function victoire(j){
 
 }
 
-function animation(animation){
+
+
+function couleur1(animation){
 	document.getElementById("racket1").classList.add(animation)
-	setTimeout(animation2,1000)
+	setTimeout(couleur,1000)
 }
 
-function animation2(){
-document.getElementById("racket1").classList.remove("balle")
-	document.getElementById("racket2").classList.remove("balle")
+function couleur2(animation){
+	document.getElementById("racket2").classList.add(animation)
+	setTimeout(couleur,1000)
+}
+
+function couleur(){
+document.getElementById("racket1").classList.remove("racket1")
+	document.getElementById("racket2").classList.remove("racket2")
 }
 
