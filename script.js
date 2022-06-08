@@ -16,7 +16,6 @@ function deplacement(){
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
     if (x + dx < 0 ){
-        dx = -dx;
         score2++;
         dy=0
         dx=0
@@ -27,7 +26,6 @@ document.getElementById("balle").style.top=y+"px"
         }
     }
     if(x+dx>largeur-diametre){
-    	dx=-dx;
         score1++;
         dy=0
         dx=0
@@ -37,12 +35,13 @@ document.getElementById("balle").style.top=y+"px"
         	victoire(1)
         }
     }
+
 if(x +dx < epaisseur){
 
 	if(document.getElementById("balle").offsetTop>document.getElementById("racket1").offsetTop-diametre
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight){
-	dx=-dx;
+	dx=Math.abs(dx);
 couleur1("racket1")
 	if(document.getElementById("balle").offsetTop
 	<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*25/100){
@@ -58,7 +57,7 @@ if (x + dx > largeur-diametre-epaisseur ) {
         if(document.getElementById("balle").offsetTop>document.getElementById("racket2").offsetTop-diametre
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight){
-	dx=-dx;
+	dx=-Math.abs(dx);
 couleur2("racket2")
 	if (document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*25/100){
 	dy=dy-1
@@ -121,13 +120,18 @@ function init(){
 	dx=5
 	dy=Math.random()*(dx/5)-dx/10
 	interval=setInterval(deplacement,10)
+	
 	document.getElementById("score1").innerHTML=0
 	document.getElementById("score2").innerHTML=0
-	document.getElementById("victoire1").hidden=true;
-	document.getElementById("victoire2").hidden=true;
-	document.getElementById("reset").hidden=true;
+	document.getElementById("victoire1").style.visibility="hidden"
+	document.getElementById("victoire2").style.visibility="hidden"
+	document.getElementById("reset").style.visibility="hidden"
+	document.getElementById("start").style.visibility="hidden"
+	document.getElementById("J1").style.visibility="hidden"
+	document.getElementById("J2").style.visibility="hidden"
 	score1=0
 	score2=0
+	
 	
 
 }
@@ -145,15 +149,17 @@ function balleaucentre() {
 	
 	}
 
-init();
+
 
 function victoire(j){
-	document.getElementById("reset").hidden=false
+	document.getElementById("reset").style.visibility="visible"
+	document.getElementById("J1").style.visibility="visible"
+	document.getElementById("J2").style.visibility="visible"
 	clearInterval(interval)
 	if (j==1)
-		document.getElementById("victoire1").hidden=false;
+		document.getElementById("victoire1").style.visibility="visible";
 	if (j==2)
-		document.getElementById("victoire2").hidden=false;
+		document.getElementById("victoire2").style.visibility="visible";
 
 
 }
@@ -174,4 +180,45 @@ function couleur(){
 document.getElementById("racket1").classList.remove("racket1")
 	document.getElementById("racket2").classList.remove("racket2")
 }
+
+function robot2() {
+	if(document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket1").clientHeight/2)
+		deplacement_racket2(-40)
+	if(document.getElementById("balle").offsetTop>document.getElementById("racket2").offsetTop+document.getElementById("racket1").clientHeight/2)
+		deplacement_racket2(40)
+}
+
+function auto(event){
+	x=parseInt(event.srcElement.id.slice(-1));
+	if(1==x)
+	if(document.getElementById("auto1").checked){
+		intervalRobot1=setInterval(robot1,200) 
+		console.log("robot1")
+	}
+	else{
+		clearInterval(intervalRobot1)
+		console.log("robotdesactive")
+	}
+	if(2==x)
+	if(document.getElementById("auto2").checked)
+		intervalRobot2=setInterval(robot2,200)
+	else
+		clearInterval(intervalRobot2)
+}
+
+document.getElementById("auto1").addEventListener("click",auto);
+document.getElementById("auto2").addEventListener("click",auto);
+document.getElementById("humain1").addEventListener("click",auto);
+document.getElementById("humain2").addEventListener("click",auto);
+function robot1() {
+	if(document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket2").clientHeight/2)
+		deplacement_racket1(-40)
+	if(document.getElementById("balle").offsetTop>document.getElementById("racket1").offsetTop+document.getElementById("racket2").clientHeight/2)
+		deplacement_racket1(40)
+}
+
+document.getElementById("start").addEventListener("click",init);
+
+
+
 
