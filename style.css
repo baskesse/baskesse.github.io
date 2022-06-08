@@ -72,6 +72,7 @@ animation-iteration-count: infinite;
     top: 39%;
     position: absolute;
     text-align: center;
+    visibility: hidden;
 }
 
 #victoire2{
@@ -81,6 +82,7 @@ animation-iteration-count: infinite;
     top: 39%;
     position: absolute;
     text-align: center;
+    visibility: hidden;
 }
 
 #reset {
@@ -90,6 +92,7 @@ animation-iteration-count: infinite;
     top: 60%;
     position: absolute;
     margin: auto;
+    visibility: hidden;
 }
 
 @keyframes racket1{
@@ -113,4 +116,32 @@ animation-iteration-count: infinite;
 .racket2{
     animation-duration: 1s;
     animation-name: racket2;
+}
+#J1{
+    color: white;
+    width: 100px;
+    left: 150px;
+    top: 35%;
+    position: absolute;
+    margin: auto;
+    font-family: Georgia, serif;
+}
+
+#J2{
+    color: white;
+    width: 100px;
+    right: 150px;
+    top: 35%;
+    position: absolute;
+    margin: auto;
+    font-family: Georgia, serif;
+}
+
+#start{
+    width: 100px;
+    right: 0;
+    left: 0;
+    top: 60%;
+    position: absolute;
+    margin: auto;
 }
