@@ -13,6 +13,9 @@ epaisseur=document.getElementById("racket1").clientWidth+document.getElementById
 
 
 function deplacement(){
+	if(dx==0){
+		return
+	}
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
     if (x + dx < 0 ){
