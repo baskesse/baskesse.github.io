@@ -1,3 +1,8 @@
+*{
+    font-family: 'VT323';
+    font-size: 30px;
+
+}
 #terrain {
 	background: black;
 	width: 700px;
@@ -53,23 +58,21 @@ animation-iteration-count: infinite;
     color: white;
     left: 150px;
     position: absolute;
-    font-size:50px ;
-    font-family: Georgia, serif;
+    font-size:75px ;
 }
 
 #score2{
     color: white;
     right: 150px;
     position: absolute;
-    font-size: 50px;
-    font-family: Georgia, serif;
+    font-size: 75px;
 }
 
 #victoire1{
     color: white;
     right: 0;
     left: 0;
-    top: 39%;
+    top: 20%;
     position: absolute;
     text-align: center;
     visibility: hidden;
@@ -79,7 +82,7 @@ animation-iteration-count: infinite;
     color: white;
     right: 0;
     left: 0;
-    top: 39%;
+    top: 20%;
     position: absolute;
     text-align: center;
     visibility: hidden;
@@ -119,29 +122,62 @@ animation-iteration-count: infinite;
 }
 #J1{
     color: white;
-    width: 100px;
+    width: 120px;
     left: 150px;
     top: 35%;
     position: absolute;
     margin: auto;
-    font-family: Georgia, serif;
 }
 
 #J2{
     color: white;
-    width: 100px;
+    width: 120px;
     right: 150px;
     top: 35%;
     position: absolute;
     margin: auto;
-    font-family: Georgia, serif;
 }
 
 #start{
-    width: 100px;
+    width: 120px;
     right: 0;
     left: 0;
     top: 60%;
     position: absolute;
     margin: auto;
+}
+
+.pixel{
+    font-size: 25px;
+  color: black;
+  height: 15px;
+  font-family: 'VT323';
+  
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  
+  cursor: pointer;
+  
+}
+
+
+.pixel {
+  line-height: 0;
+  
+  image-rendering: optimizeSpeed;
+  image-rendering: crisp-edges;
+  border-style: solid;
+  border-width: 20px;
+  border-image: url(pixel.png) 20 stretch;
+}
+
+#pause{
+    color: white;
+    right: 0;
+    left: 0;
+    top: 39%;
+    position: absolute;
+    text-align: center;
+    
 }

@@ -101,8 +101,9 @@ function deplacement_racket2(u){
 	document.getElementById("racket2").style.top=u+"px"	
 }
 
+pas=40
 function touchePressee(e){
-	pas=40
+	
 	if (e.key == "z")
 		deplacement_racket1(-pas)
 	if (e.key == "s")
@@ -111,6 +112,8 @@ function touchePressee(e){
 		deplacement_racket2(-pas)
 	if (e.key == "ArrowDown")
 		deplacement_racket2(pas)
+	if (e.key=="Escape")
+		pause()
 }
 document.addEventListener('keydown',touchePressee);
 document.getElementById("reset").addEventListener("click",init);
@@ -132,6 +135,7 @@ function init(){
 	document.getElementById("start").style.visibility="hidden"
 	document.getElementById("J1").style.visibility="hidden"
 	document.getElementById("J2").style.visibility="hidden"
+	document.getElementById("pause").hidden=true
 	score1=0
 	score2=0
 	
@@ -222,6 +226,26 @@ function robot1() {
 
 document.getElementById("start").addEventListener("click",init);
 
+function pause(){
+if 	(document.getElementById("pause").hidden== true){
+	console.log(1)
+	Vx = dx
+	Vy = dy
+	dx = 0
+	dy = 0
+	pas=0
+	document.getElementById("pause").hidden=false
+}
+else{
+	console.log(2)
+	
+
+	dx=Vx
+	dy=Vy
+	pas=25
+	document.getElementById("pause").hidden=true
+}
+}
 
 
 
