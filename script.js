@@ -136,6 +136,14 @@ function init(){
 	document.getElementById("J1").style.visibility="hidden"
 	document.getElementById("J2").style.visibility="hidden"
 	document.getElementById("pause").hidden=true
+	document.getElementById("upj1").style.visibility="hidden"
+	document.getElementById("downj1").style.visibility="hidden"
+	document.getElementById("upj2").style.visibility="hidden"
+	document.getElementById("downj2").style.visibility="hidden"
+	document.getElementById("touchepause").style.visibility="hidden"
+	
+
+
 	score1=0
 	score2=0
 	

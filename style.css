@@ -1,8 +1,10 @@
 *{
     font-family: 'VT323';
     font-size: 30px;
+    color: white;
 
 }
+
 #terrain {
 	background: black;
 	width: 700px;
@@ -145,6 +147,7 @@ animation-iteration-count: infinite;
     top: 60%;
     position: absolute;
     margin: auto;
+    color: black;
 }
 
 .pixel{
@@ -181,3 +184,37 @@ animation-iteration-count: infinite;
     text-align: center;
     font-size: 40px;
 }
+
+#upj1{
+    position: absolute;
+    left: 77px;
+    top: 69%;
+}
+
+#downj1{
+    position: absolute;
+    left: 77px;
+    top: 78%;
+}
+
+#upj2{
+    position: absolute;
+    right: 77px;
+    top: 69%;
+}
+
+#downj2{
+    position: absolute;
+    right: 77px;
+    top: 78%;
+}
+
+#touchepause{
+    width: 120px;
+    right: 0;
+    left: 0;
+    top: 75%;
+    position: absolute;
+    margin: auto;
+}
+
